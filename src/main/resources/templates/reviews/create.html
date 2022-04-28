@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+	<!-- Site Metas -->
+	<title>Products & Reviews</title>  
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
+	<!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/css/all.min.css">  	
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom_home.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+
+</head>
+
+<body>
+<div id="particles-js" class="main-form-box">
+	<div class="md-form">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="panel panel-login">
+						<div class="logo-top">
+							<a href="/">
+								<h3>Products & Reviews</h3>
+								<h4>Product Create</h4>
+							</a>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									
+									<div class="main-content">
+								
+											<div class="card" style="display: block;">
+											<form action="/reviews/create" method="post" role="form" th:object="${reviews}">
+                     <br>
+                    <div class="">
+                    
+                          <div class="col-2">
+		                    <div class="input-group">
+		                         <input type="text" class="input--style-2" th:field="*{Name}" placeholder="Name" >
+		                    </div>
+		                    <div th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}" class="custom-inline-validatation-error" > 
+		                    </div>
+		                 
+                          </div>
+                           <br>
+                          <div class="col-2">
+		                   	<div class="input-group">
+		                        <input th:field="*{Data}" type="text" class="input--style-2" placeholder="Data" >
+		                    </div>
+		                    <div th:if="${#fields.hasErrors('Data')}" th:errors="*{Data}" class="custom-inline-validatation-error" > 
+		                    </div>
+                        </div>
+                          
+                     </div>
+                      <br>
+                     <div class="">
+                          
+                          <div class="col-2">
+	                    	<div class="input-group">
+		                            <input th:field="*{Comment}" type="text" class="input--style-2" placeholder="Comment" >
+		                    </div>
+		                    <div th:if="${#fields.hasErrors('Comment')}" th:errors="*{Comment}" class="custom-inline-validatation-error" > 
+		                    </div>
+                          </div>
+                           <br>
+                          <div class="col-2">
+		                   	<div class="input-group">
+		                        <input th:field="*{Rating}" type="text" class="input--style-2" placeholder="Rating" >
+		                    </div>
+		                    <div th:if="${#fields.hasErrors('Rating')}" th:errors="*{Rating}" class="custom-inline-validatation-error" > 
+		                    </div>
+                        </div>
+                         <br>
+                        <div class="col-2">
+		                   	<div class="input-group">
+		                        <input th:field="*{ProductId}" type="text" class="input--style-2" placeholder="ProductId" >
+		                    </div>
+		                    <div th:if="${#fields.hasErrors('ProductId')}" th:errors="*{ProductId}" class="custom-inline-validatation-error" > 
+		                    </div>
+                        </div>
+                          
+                     </div>
+                                    	
+                  	 <br>
+		             <div class="p-t-30">
+			             <button type="submit" class="btn btn-danger">Create</button>
+			             <button type="button" class="btn btn-info" onclick="history.go(-1);">Cancel</button>
+		             </div>
+		                                   
+                  </form>
+                                            </div>
+											
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/index.min.js"></script>
+
+</body>
+</html>

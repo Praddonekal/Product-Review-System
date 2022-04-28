@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+	<!-- Site Metas -->
+	<title>Products & Reviews</title>  
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
+	<!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/css/all.min.css">  	
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom_home.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+</head>
+
+<body>
+<div id="particles-js" class="main-form-box">
+	<div class="md-form">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="panel panel-login">
+						<div class="logo-top">
+						
+							<a href="/">
+								<h3>Products & Reviews</h3>
+								<h4>Products List</h4>
+							</a>
+					
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									
+									<div class="main-content" style="text-align: center;">
+									
+										<div th:if="${not #strings.isEmpty(error_message)}">
+									    	<div class="alert alert-danger" role="alert" th:text="${error_message}">
+											</div>
+										</div>
+										
+										<div th:if="${not #strings.isEmpty(info_message)}">
+											<div class="alert alert-success" role="alert" th:text="${info_message}">
+											</div>
+										</div>
+											<div style="float: right; margin-bottom: 15px;">
+											
+												<a th:href="@{/products/create}" class="btn btn-primary">Create</a>
+												
+											</div>
+											<table class="table table-bordered table-hover table-striped">
+												<thead>
+												  <tr>
+												  
+													<th scope="col">#</th>
+													<th scope="col">Name</th>
+													<th scope="col">Address</th>
+													<th scope="col">City</th>
+													<th scope="col">Phone</th>
+													<th scope="col" style="width: 15px;"></th>
+													<th scope="col" style="width: 15px;"></th>
+													<th scope="col" style="width: 15px;"></th>
+													
+												  </tr>
+												</thead>
+												<tbody>
+												
+												<tr th:each="item : ${items}">
+									                <td th:text="${item.id}"></td>
+									                <td th:text="${item.Name}"></td>
+									                <td th:text="${item.Price}"></td>
+									                <td th:text="${item.Quantity}"></td>
+									                <td th:text="${item.Location}"></td>
+
+									                <td><a th:href="@{/products/details/{id}(id=${item.id})}" class="btn btn-primary">Details</a></td>
+									                <td><a th:href="@{/reviews/create}" class="btn btn-primary">Create Review</a></td>
+									                <td><a th:href="@{/products/update/{id}(id=${item.id})}" class="btn btn-warning">Edit</a></td>
+									                <td>
+									                
+									                <form th:action="@{/products/delete/{id}(id=${item.id})}" method="post" role="form">
+											   			<input type="submit" class="btn btn-danger" value="Delete"/>
+											   		</form>
+											   		
+									                </td>
+									            </tr>
+									            
+												</tbody>
+											  </table>
+											
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+										
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.min.js"></script>
+
+</body>
+</html>
